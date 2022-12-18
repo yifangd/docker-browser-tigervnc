@@ -1,0 +1,21 @@
+version: "3"
+
+# https://github.com/yifangd/chrome
+services:
+  chrome:
+    container_name: chrome
+    hostname: chrome
+    image: yifang/chrome:latest
+    ports:
+        - "5909:5900/tcp"
+          #privileged: true
+    #security_opt:
+    #    - seccomp=/etc/docker-chrome/etc/chrome.json
+    # Volumes store your data between container upgrades
+    volumes:
+        - "/etc/localtime:/etc/localtime:ro"
+        - '/keep/docker-chrome-data/live:/home/chrome'
+          #- "/etc/docker-chrome/etc/passwd:/home/chrome/.vnc/passwd:ro"
+          #- "/etc/docker-chrome/etc/Default/Bookmarks:/home/chrome/.config/google-chrome/Default/Bookmarks"
+    restart: unless-stopped
+
