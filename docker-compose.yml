@@ -1,16 +1,16 @@
 version: "3"
 
-# https://github.com/yifangd/chrome
+# https://github.com/yifangd/docker-browser-tigervnc
 services:
-  chrome:
-    container_name: chrome
-    hostname: chrome
-    image: yifang/chrome:latest
+  browser-tigervnc:
+    container_name: browser-tigervnc
+    hostname: browser-tigervnc
+    image: yifang/browser-tigervnc:latest
     ports:
-        - "5909:5900/tcp"
+            - "5909:5900/tcp"
     # Volumes store your data between container upgrades
     volumes:
         - "/etc/localtime:/etc/localtime:ro"
-        - '/keep/docker-chrome-data/live:/home/chrome'
+        - '/keep/docker-browser-tigervnc-data/live:/home/browser'
     restart: unless-stopped
 

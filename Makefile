@@ -1,8 +1,10 @@
 include /etc/docker/Makefile
 
 ch chown:
-	sudo chown -R 1000:1000 etc /keep/docker-browser-data
+	sudo chown -R 1000:1000 etc /keep/docker-browser-tigervnc-data
 reset:
-	cd /keep/docker-browser-data/; sudo rsync -avx --delete skel/ live/; sudo chown -R 1000:1000 live
+	cd /keep/docker-browser-tigervnc-data/; sudo rsync -avx --delete skel/ live/; sudo chown -R 1000:1000 live
+save:
+	cd /keep/docker-browser-tigervnc-data/; sudo rsync -avx --delete live/ skel/; sudo chown -R 1000:1000 skel
 build:
-	cd /home/yifang/ogit/browser; vi Dockerfile; docker build . -t yifang/docker-browser-tigervnc:latest #--rm=false
+	docker build . -t yifang/browser-tigervnc:latest

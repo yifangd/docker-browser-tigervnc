@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	pulseaudio pavucontrol paprefs tigervnc-standalone-server icewm xterm procps xfce4-terminal\
 	firefox-esr \
   && apt-get clean \
-	&& rm -rf /var/cache/* /var/log/apt/* /var/lib/apt/lists/* /tmp/*
+	&& rm -rf /var/cache/* /var/log/apt/* /var/lib/apt/lists/* /tmp/* \
   && useradd -m -G pulse-access ${USER} \
 	&& usermod -s /bin/bash ${USER} \
 	&& chown -R ${USER}:${USER} /home/${USER}
