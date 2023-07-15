@@ -1,4 +1,4 @@
-FROM debian:bullseye-backports
+FROM debian:bookworm-backports
 
 LABEL maintainer="Yifang Dai <yifangd@gmail.com>"
 
@@ -6,7 +6,8 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV USER browser
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-	gnupg2 ca-certificates \
+	gnupg2 ca-certificates openssh-client \
+	iputils-ping net-tools iproute2 mtr-tiny curl \
 	fonts-wqy-zenhei fonts-wqy-microhei ttf-bitstream-vera fonts-dejavu \
 	pulseaudio pavucontrol paprefs tigervnc-standalone-server icewm xterm procps xfce4-terminal\
 	firefox-esr \

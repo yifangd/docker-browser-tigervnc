@@ -4,8 +4,11 @@ version: "3"
 services:
   browser-tigervnc:
     container_name: browser-tigervnc
-    hostname: browser-tigervnc
     image: yifang/browser-tigervnc:latest
+    # revert back to default via proxy, to simplify the dependency
+    #network_mode: "container:gluetun"
+    hostname: browser-tigervnc
+    #network_mode: host
     ports:
             - "5909:5900/tcp"
     # Volumes store your data between container upgrades
