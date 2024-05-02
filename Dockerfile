@@ -9,7 +9,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	gnupg2 ca-certificates openssh-client \
 	iputils-ping net-tools iproute2 mtr-tiny curl \
 	fonts-wqy-zenhei fonts-wqy-microhei ttf-bitstream-vera fonts-dejavu \
-	pulseaudio pavucontrol paprefs tigervnc-standalone-server icewm xterm procps xfce4-terminal\
+	pulseaudio pavucontrol paprefs tigervnc-standalone-server icewm xterm procps tilix \
+	sudo \
 	firefox-esr \
   && apt-get clean \
 	&& rm -rf /var/cache/* /var/log/apt/* /var/lib/apt/lists/* /tmp/* \
@@ -23,4 +24,5 @@ WORKDIR /home/${USER}
 USER ${USER}
 EXPOSE 5900
 
-CMD /usr/bin/tigervncserver :0 -name vBrowser:0 -PasswordFile /home/${USER}/.vnc/passwd -localhost no -geometry 1600x1000 -depth 16 -dpi 75 -fg || /usr/bin/tail -F /var/log/messages
+#CMD /usr/bin/tigervncserver :0 -name vBrowser:0 -PasswordFile /home/${USER}/.vnc/passwd -localhost no -geometry 1600x1000 -depth 16 -dpi 75 -fg || /usr/bin/tail -F /var/log/messages
+CMD /home/${USER}/bin/v server && /usr/bin/tail -F /var/log/messages

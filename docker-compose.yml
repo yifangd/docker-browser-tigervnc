@@ -10,10 +10,12 @@ services:
     hostname: browser-tigervnc
     #network_mode: host
     ports:
-            - "5909:5900/tcp"
+        - "127.0.0.1:5909:5908/tcp"
     # Volumes store your data between container upgrades
     volumes:
         - "/etc/localtime:/etc/localtime:ro"
-        - '/keep/docker-browser-tigervnc-data/live:/home/browser'
+        - './data/live:/home/browser'
+        - '/f/rt/q:/home/browser/Downloads/q'
+        - '/f/i/tbd-gphotos-amosch:/home/browser/Downloads/tbd-gphotos-amosch'
     restart: unless-stopped
 

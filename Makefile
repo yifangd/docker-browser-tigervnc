@@ -7,5 +7,5 @@ reset:
 save:
 	cd /keep/docker-browser-tigervnc-data/; sudo rsync -avx --delete live/ skel/; sudo chown -R 1000:1000 skel
 C=--pull --no-cache
-build:
-	docker build . $C -t yifang/browser-tigervnc:latest -t yifang/browser-tigervnc:`date +%Y%m%d`
+b build:
+	sudo docker build . $C -t yifang/browser-tigervnc:latest -t yifang/browser-tigervnc:`date +%Y%m%d`
