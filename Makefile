@@ -9,3 +9,4 @@ save:
 C=--pull --no-cache
 b build:
 	sudo docker build . $C -t yifang/browser-tigervnc:latest -t yifang/browser-tigervnc:`date +%Y%m%d`
+	make stop start

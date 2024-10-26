@@ -1,0 +1,2 @@
+deb http://www.deb-multimedia.org bookworm main non-free
+deb http://www.deb-multimedia.org bookworm-backports main
